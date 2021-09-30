@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow: hidden;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <title>Do you want me?</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        margin: 0;
+    }
+    
+    .section {
+        position: absolute;
+        min-height: 100vh;
+        text-align: center;
+        width: 100%;
+        display: table;
+        font-family: 'Anton';
+        background: url("./img/bg.jpg") no-repeat;
+        background-size: cover;
+        background-position: center;
+        z-index: 2;
+    }
+    
+    .wrap_block {
+        display: table-cell;
+        vertical-align: middle;
+        color: white;
+    }
+    
+    h1 {
+        width: 100%;
+        font-size: 90px;
+        font-family: 'Anton';
+        letter-spacing: 5px;
+        background: rgba(0, 0, 0, 0.438);
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    .btn {
+        width: 200px;
+        height: 100px;
+        border-radius: 20px;
+        color: white;
+        display: table-cell;
+        vertical-align: middle;
+        font-size: 30px;
+    }
+    
+    .yes {
+        background-color: rgb(0, 163, 0);
+    }
+    
+    .no {
+        background-color: rgb(216, 14, 0);
+    }
+    
+    .btn:hover {
+        background: white;
+        color: black;
+    }
+    
+    @media(max-width: 480px) {
+        h1 {
+            font-size: 38px;
+        }
+        .btn {
+            width: 100px;
+            height: 50px;
+            color: white;
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 25px;
+        }
+    }
+</style>
+
+<body>
+    <div class="section">
+        <div class="wrap_block">
+            <h1>MISHA PIDOR</h1>
+            <div style="text-align: center; margin-left: -100px;">
+                <a style="margin: 20px;">
+                    <div class="btn yes">
+                        Yes
+                    </div>
+                </a>
+                <a style=" position: absolute;" id="btn">
+                    <div class="btn no">
+                        No
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+    </div>
+    <script>
+        // пропишем функцию random
+        const random = (min, max) => {
+            const rand = min + Math.random() * (max - min + 1);
+            return Math.floor(rand);
+        }
+
+        // найдем кнопку
+        const btn = document.querySelector('#btn');
+
+        // повесим обработчик событий
+        btn.addEventListener('mouseenter', () => {
+            btn.style.left = `${random(0, 90)}%`;
+            btn.style.top = `${random(0, 90)}%`;
+        });
+    </script>
+
+
+</body>
+
+</html>
